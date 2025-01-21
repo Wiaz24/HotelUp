@@ -12,6 +12,20 @@ services:
         depends_on:
             - postgres
             - rabbitmq
+
+    cleaning:
+        image: wiaz/hotelup.cleaning:latest
+        environment:
+            ASPNETCORE_ENVIRONMENT: Docker
+        ports:
+          - "5004:8080"
+        volumes:
+          - ${HOME}/.aws/credentials:/home/app/.aws/credentials
+        networks:
+            - hotelup
+        depends_on:
+            - postgres
+            - rabbitmq
           
     postgres:
         image: postgres:latest

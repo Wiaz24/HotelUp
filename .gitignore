@@ -1,0 +1,10 @@
+.idea
+**/.terraform
+**/.terraform.lock.hcl
+**/*.tfstate
+**/*.tfstate.backup
+**/*.tfvars
+**/*.zip
+**/lambda-layer
+
+private_terraform
