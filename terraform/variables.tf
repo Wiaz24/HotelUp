@@ -9,3 +9,9 @@ variable "lab_role" {
     type        = string
     default     = "arn:aws:iam::658583182001:role/LabRole"
 }
+
+variable "cognito_user_password" {
+    description = "Password for the cognito user"
+    type        = string
+    sensitive   = true
+}

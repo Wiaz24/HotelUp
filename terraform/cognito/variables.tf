@@ -27,3 +27,9 @@ variable "frontend_redirect_urls" {
     description = "List of frontend URLs to which the cognito should redirect"
     default = ["http://localhost:5173"]
 }
+
+variable "cognito_user_password" {
+    type = string
+    description = "Password for the cognito user"
+    sensitive = true
+}

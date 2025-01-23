@@ -82,35 +82,7 @@ resource "aws_cognito_user_pool_client" "frontend_client" {
     supported_identity_providers = ["COGNITO"]
 }
 
-resource "aws_cognito_user_group" "Clients" {
-    name         = "Clients"
-    user_pool_id = aws_cognito_user_pool.main.id
-}
 
-resource "aws_cognito_user_group" "Cleaners" {
-    name         = "Cleaners"
-    user_pool_id = aws_cognito_user_pool.main.id
-}
-
-resource "aws_cognito_user_group" "Janitors" {
-    name         = "Janitors"
-    user_pool_id = aws_cognito_user_pool.main.id
-}
-
-resource "aws_cognito_user_group" "Cooks" {
-    name         = "Cooks"
-    user_pool_id = aws_cognito_user_pool.main.id
-}
-
-resource "aws_cognito_user_group" "Receptionists" {
-    name         = "Receptionists"
-    user_pool_id = aws_cognito_user_pool.main.id
-}
-
-resource "aws_cognito_user_group" "Admins" {
-    name         = "Admins"
-    user_pool_id = aws_cognito_user_pool.main.id
-}
 
 resource "aws_cognito_user_pool_client" "swagger_client" {
     name         = "swagger-client"

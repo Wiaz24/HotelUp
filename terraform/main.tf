@@ -8,4 +8,5 @@ module "cognito" {
     source = "./cognito"
     aws_region = var.aws_region
     lab_role = var.lab_role
+    cognito_user_password = var.cognito_user_password
 }
