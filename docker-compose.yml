@@ -4,9 +4,9 @@ services:
         environment:
             ASPNETCORE_ENVIRONMENT: Docker
         ports:
-          - "5000:8080"
+            - "5000:8080"
         volumes:
-          - ${HOME}/.aws/credentials:/home/app/.aws/credentials
+            - C:/Users/wiazh/.aws/credentials:/home/app/.aws/credentials
         networks:
             - hotelup
         depends_on:
@@ -18,15 +18,29 @@ services:
         environment:
             ASPNETCORE_ENVIRONMENT: Docker
         ports:
-          - "5004:8080"
+            - "5004:8080"
         volumes:
-          - ${HOME}/.aws/credentials:/home/app/.aws/credentials
+            - C:/Users/wiazh/.aws/credentials:/home/app/.aws/credentials
         networks:
             - hotelup
         depends_on:
             - postgres
             - rabbitmq
-          
+    
+    information:
+        image: wiaz/hotelup.information:latest
+        environment:
+            ASPNETCORE_ENVIRONMENT: Docker
+        ports:
+            - "5003:8080"
+        volumes:
+            - C:/Users/wiazh/.aws/credentials:/home/app/.aws/credentials
+        networks:
+            - hotelup
+        depends_on:
+            - postgres
+            - rabbitmq
+    
     postgres:
         image: postgres:latest
         environment:
@@ -34,12 +48,16 @@ services:
             POSTGRES_PASSWORD: postgres
             POSTGRES_DB: testdb
         ports:
-        - "5432:5432"
+            - "5432:5432"
+        command:
+            - "-c"
+            - "config_file=/etc/postgresql.conf"
         volumes:
-        - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./postgresql.conf:/etc/postgresql.conf
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
         networks:
-        - hotelup
-            
+            - hotelup
+    
     rabbitmq:
         image: rabbitmq:management
         environment:
@@ -49,8 +67,8 @@ services:
             - "5672:5672"
             - "15672:15672"
         networks:
-          - hotelup
-        
+            - hotelup
+    
     seq:
         image: datalust/seq
         environment:
@@ -59,8 +77,8 @@ services:
             - "5341:5341"
             - "80:80"
         networks:
-          - hotelup
-    
+            - hotelup
+
 networks:
     hotelup:
         driver: bridge

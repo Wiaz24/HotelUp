@@ -19,7 +19,7 @@ variable "swagger_redirect_urls" {
         "http://localhost:5004/api/cleaning/swagger/oauth2-redirect.html",
         "http://localhost:5006/api/kitchen/swagger/oauth2-redirect.html",
         "http://localhost:5007/api/payment/swagger/oauth2-redirect.html"
-        ]
+    ]
 }
 
 variable "frontend_redirect_urls" {
@@ -31,5 +31,16 @@ variable "frontend_redirect_urls" {
 variable "cognito_user_password" {
     type = string
     description = "Password for the cognito user"
+    sensitive = true
+}
+
+variable "target_url" {
+    type = string
+    description = "URL to which the lambda function should send post confirmation data"
+}
+
+variable "lambda_api_key" {
+    type = string
+    description = "API key for the lambda function"
     sensitive = true
 }
