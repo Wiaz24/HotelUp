@@ -6,7 +6,7 @@ services:
         ports:
             - "5000:8080"
         volumes:
-            - C:/Users/wiazh/.aws/credentials:/home/app/.aws/credentials
+            - $HOME/.aws/credentials:/home/app/.aws/credentials
         networks:
             - hotelup
         depends_on:
@@ -20,7 +20,7 @@ services:
         ports:
             - "5004:8080"
         volumes:
-            - C:/Users/wiazh/.aws/credentials:/home/app/.aws/credentials
+            - $HOME/.aws/credentials:/home/app/.aws/credentials
         networks:
             - hotelup
         depends_on:
@@ -34,7 +34,7 @@ services:
         ports:
             - "5003:8080"
         volumes:
-            - C:/Users/wiazh/.aws/credentials:/home/app/.aws/credentials
+            - $HOME/.aws/credentials:/home/app/.aws/credentials
         networks:
             - hotelup
         depends_on:
