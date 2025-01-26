@@ -1,4 +1,4 @@
-output "cognito_user_pool_id" {
+output "user_pool_id" {
     description = "ID of the Cognito user pool"
     value       = aws_cognito_user_pool.main.id
 }
@@ -23,7 +23,7 @@ output "user_types" {
     value       = local.UserTypes
 }
 
-output "user_emails" {
-    description = "List of user emails"
-    value       = [for user in aws_cognito_user.users : user.value.attributes.email]
+output "user_pool_arn" {
+    description = "ARN of the Cognito user pool"
+    value       = aws_cognito_user_pool.main.arn
 }

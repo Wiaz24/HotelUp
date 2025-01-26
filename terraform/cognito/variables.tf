@@ -3,11 +3,6 @@ variable "aws_region" {
     description = "AWS region"
 }
 
-variable "lab_role" {
-    type = string
-    description = "ARN of the IAM role to be used by the Lambda function"
-}
-
 variable "swagger_redirect_urls" {
     type = list(string)
     description = "List of swagger URLs to which the cognito should redirect"
@@ -31,16 +26,5 @@ variable "frontend_redirect_urls" {
 variable "cognito_user_password" {
     type = string
     description = "Password for the cognito user"
-    sensitive = true
-}
-
-variable "target_url" {
-    type = string
-    description = "URL to which the lambda function should send post confirmation data"
-}
-
-variable "lambda_api_key" {
-    type = string
-    description = "API key for the lambda function"
     sensitive = true
 }

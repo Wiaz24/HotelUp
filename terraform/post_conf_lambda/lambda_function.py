@@ -6,7 +6,7 @@ from typing import Dict, Any
 def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     try:
         target_url = os.environ['TARGET_URL']
-        api_key = os.environ['API_KEY']
+        api_key = get_api_key()
         user_pool_id = os.environ['USER_POOL_ID']
         cert_path = '/opt/certs/certificate.pem'
 
@@ -45,3 +45,16 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         raise
         
     return event
+
+def get_api_key():
+    try:
+        ssmClient = boto3.client('ssm')
+        response = ssmClient.get_parameter(
+            Name='/HotelUp.Customer/Docker/AWS/Lambda/ApiKey', 
+            WithDecryption=True)
+        
+        parameter_value = response['Parameter']['Value']
+        return parameter_value
+    except Exception as e:
+        print(f"Failed to get API key from SSM: {str(e)}")
+        raise

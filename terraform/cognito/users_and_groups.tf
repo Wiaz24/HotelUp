@@ -1,28 +1,28 @@
 locals {
-    UserTypes = [
+    UserTypes = toset([
         "Admin",
         "Client",
         "Cleaner",
         "Janitor",
         "Cook",
         "Receptionist"
-    ]
+    ])
 }
 
 resource "aws_cognito_user_group" "user_groups" {
     for_each = local.UserTypes
-    name         = "${each.value}s"
+    name         = "${each.key}s"
     user_pool_id = aws_cognito_user_pool.main.id
 }
 
 resource "aws_cognito_user" "users" {
     for_each = local.UserTypes
     user_pool_id = aws_cognito_user_pool.main.id
-    username     = lower("${each.value}")
+    username     = "${lower("${each.key}")}@email.com"
     password = var.cognito_user_password
 
     attributes = {
-        email          = "${lower("${each.value}")}@email.com"
+        email          = "${lower("${each.key}")}@email.com"
         email_verified = true
     }
 }
