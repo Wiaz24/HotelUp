@@ -1,0 +1,20 @@
+﻿root = true
+
+# All files
+[*]
+indent_style = space
+
+# Xml files
+[*.xml]
+indent_size = 4
+
+# JSON files
+[*.json]
+indent_size = 4
+tab_width = 4
+
+# Yaml files
+[*.yaml]
+indent_size = 4
+tab_width = 4
+

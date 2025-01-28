@@ -1,0 +1,25 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+    name: hotelup-cluster
+    region: us-east-1
+    version: "1.31"
+
+iam:
+    serviceRoleARN: arn:aws:iam::658583182001:role/LabRole
+
+managedNodeGroups:
+  - name: worker-nodes
+    instanceType: t3.medium
+    minSize: 2
+    maxSize: 3
+    volumeSize: 10
+    maxPodsPerNode: 11
+    ssh:
+        allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
+    iam:
+        instanceRoleARN: arn:aws:iam::658583182001:role/LabRole
+        # instanceRoleName: EMR_EC2_DefaultRole
+        # withAddonPolicies:
+        #     ebs: true

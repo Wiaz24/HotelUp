@@ -1,0 +1,21 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+    name: rabbitmq-cluster
+    labels:
+        app: rabbitmq
+spec:
+    persistence:
+        # storageClassName: hostpath
+        storage: 2Gi
+    replicas: 3
+    secretBackend:
+        externalSecret:
+            name: "rabbitmq-secret"
+    resources:
+        requests:
+            cpu: 500m
+            memory: 500Mi
+        limits:
+            cpu: 1000m
+            memory: 1Gi

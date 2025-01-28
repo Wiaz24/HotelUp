@@ -8,3 +8,6 @@
 **/lambda-layer
 
 private_terraform
+
+**/*-secret.yaml
+**/*-secret.yml
