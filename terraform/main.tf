@@ -11,6 +11,23 @@ module "cognito" {
     cognito_user_password = var.cognito_user_password
 }
 
+# Depends on the cognito module
+module "parameter_store" {
+    source = "./parameter_store"
+
+    postgres-default-db = var.postgres-default-db
+    postgres-default-user = var.postgres_default_user
+    postgres-default-password = var.postgres_default_password
+    pgadmin-default-email = var.pgadmin-default-email
+    pgadmin-default-password = var.pgadmin-default-password
+    cognito-user-pool-id = module.cognito.user_pool_id
+    cognito-metadata-address = module.cognito.metadata_address
+    swagger-client-id = module.cognito.swagger_client_id
+    swagger-client-secret = module.cognito.swagger_client_secret
+    rabbitmq-default-username = var.rabbitmq_default_username
+    rabbitmq-default-password = var.rabbitmq_default_password
+}
+
 module "post_confirmation_lambda" {
     source = "./post_conf_lambda"
 

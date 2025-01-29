@@ -23,12 +23,12 @@ spec:
                     valueFrom:
                         secretKeyRef:
                             name: pgadmin-secret
-                            key: pgadmin-email
+                            key: email
                   - name: PGADMIN_DEFAULT_PASSWORD
                     valueFrom:
                         secretKeyRef:
                             name: pgadmin-secret
-                            key: pgadmin-password
+                            key: password
 ---
 apiVersion: v1
 kind: Service

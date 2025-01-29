@@ -19,7 +19,10 @@ spec:
             containers:
               - name: employee
                 image: wiaz/hotelup.employee:latest
-                imagePullPolicy: IfNotPresent
+                imagePullPolicy: Always
+                env:
+                  - name: ASPNETCORE_ENVIRONMENT
+                    value: Production
                 ports:
                   - containerPort: 5002
                     protocol: TCP

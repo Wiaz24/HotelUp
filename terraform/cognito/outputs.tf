@@ -27,3 +27,8 @@ output "user_pool_arn" {
     description = "ARN of the Cognito user pool"
     value       = aws_cognito_user_pool.main.arn
 }
+
+output "metadata_address" {
+    description = "Metadata address of the Cognito user pool"
+    value       = "https://cognito-idp.us-east-1.amazonaws.com/${aws_cognito_user_pool.main.id}/.well-known/openid-configuration"
+}
