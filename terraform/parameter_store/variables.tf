@@ -56,3 +56,9 @@ variable "swagger-client-secret" {
     sensitive = true
     description = "The client secret of the swagger"
 }
+
+variable "lambda-api-key" {
+    type = string
+    sensitive = true
+    description = "The api key of the post confirmation lambda"
+}

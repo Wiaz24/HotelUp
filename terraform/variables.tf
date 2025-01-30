@@ -21,3 +21,9 @@ variable "target_url" {
     type        = string
     default     = "https://jsonplaceholder.typicode.com/posts"
 }
+
+variable "lambda_api_key" {
+    description = "API key for the lambda"
+    type        = string
+    sensitive   = true
+}

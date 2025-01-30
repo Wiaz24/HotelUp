@@ -1,11 +1,5 @@
-variable "allowed-origins-local" {
-    type = string
-    description = "The allowed origins for the CORS policy"
-    default = "http://localhost:5173, http://localhost:5002"
-}
-
 locals {
-    employee_production_parameters = {
+    kitchen_production_parameters = {
         "AWS/Cognito/UserPoolId"    = { type = "String", value = "${var.cognito-user-pool-id}" }
         "AllowedOrigins"            = { type = "StringList", value = "${var.allowed-origins-local}" }
         "MessageBroker/RabbitMQ/UserName"   = { type = "String", value = "${var.rabbitmq-default-username}" }
@@ -13,13 +7,13 @@ locals {
         "Oidc/ClientSecret"         = { type = "SecureString", value = "${var.swagger-client-secret}" }
         "Oidc/ClientId"             = { type = "String", value = "${var.swagger-client-id}" }
         "Oidc/MetadataAddress"      = { type = "String", value = "${var.cognito-metadata-address}" }
-        "Postgres/ConnectionString" = { type = "SecureString", value = "Host=postgres-service;Port=5432;Database=${var.postgres-default-db};Username=employee_user;Password=employee_${var.postgres-default-password}" }
+        "Postgres/ConnectionString" = { type = "SecureString", value = "Host=postgres-service;Port=5432;Database=${var.postgres-default-db};Username=kitchen_user;Password=kitchen_${var.postgres-default-password}" }
     }
 }
 
-resource "aws_ssm_parameter" "employee_docker_params" {
-    for_each = local.employee_production_parameters
-    name        = "/HotelUp.Employee/Production/${each.key}"
+resource "aws_ssm_parameter" "kitchen_docker_params" {
+    for_each = local.kitchen_production_parameters
+    name        = "/HotelUp.Kitchen/Production/${each.key}"
     description = "Production parameter"
     type        = each.value.type
     value       = each.value.value
@@ -28,7 +22,7 @@ resource "aws_ssm_parameter" "employee_docker_params" {
     
     tags = {
         Environment = "Production"
-        Application = "HotelUp.Employee"
+        Application = "HotelUp.Kitchen"
         ManagedBy   = "terraform"
     }
 }

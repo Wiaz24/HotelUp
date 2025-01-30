@@ -1,4 +1,8 @@
 services:
+    frontend:
+        image: akopij70/hotelup.frontend:latest
+        ports:
+            - "5173:5173"
     customer:
         image: wiaz/hotelup.customer:latest
         environment:

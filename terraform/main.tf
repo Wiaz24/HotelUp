@@ -26,6 +26,7 @@ module "parameter_store" {
     swagger-client-secret = module.cognito.swagger_client_secret
     rabbitmq-default-username = var.rabbitmq_default_username
     rabbitmq-default-password = var.rabbitmq_default_password
+    lambda-api-key = var.lambda_api_key
 }
 
 module "post_confirmation_lambda" {
