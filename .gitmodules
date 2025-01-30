@@ -1,0 +1,21 @@
+[submodule "HotelUp.Customer"]
+	path = HotelUp.Customer
+	url = https://github.com/Wiaz24/HotelUp.Customer
+[submodule "HotelUp.Information"]
+	path = HotelUp.Information
+	url = https://github.com/Wiaz24/HotelUp.Information
+[submodule "HotelUp.Cleaning"]
+	path = HotelUp.Cleaning
+	url = https://github.com/Wiaz24/HotelUp.Cleaning
+[submodule "HotelUp.Kitchen"]
+	path = HotelUp.Kitchen
+	url = https://github.com/Wiaz24/HotelUp.Kitchen
+[submodule "HotelUp.Employee"]
+	path = HotelUp.Employee
+	url = https://github.com/Wiaz24/HotelUp.Employee
+[submodule "HotelUp.Frontend"]
+	path = HotelUp.Frontend
+	url = https://github.com/Wiaz24/HotelUp.Frontend
+[submodule "HotelUp.Repair"]
+	path = HotelUp.Repair
+	url = https://github.com/Wiaz24/HotelUp.Repair
