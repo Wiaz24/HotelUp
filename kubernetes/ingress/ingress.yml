@@ -9,10 +9,45 @@ spec:
       - host: hotelup.local
       - http:
             paths:
-              - path: /
+              - path: /api/customer
                 pathType: Prefix
                 backend:
                     service:
-                        name: pgadmin-service
+                        name: customer-service
                         port:
-                            number: 8080
+                            number: 5000
+              - path: /api/repair
+                pathType: Prefix
+                backend:
+                    service:
+                        name: repair-service
+                        port:
+                            number: 5001
+              - path: /api/employee
+                pathType: Prefix
+                backend:
+                    service:
+                        name: employee-service
+                        port:
+                            number: 5002
+              - path: /api/information
+                pathType: Prefix
+                backend:
+                    service:
+                        name: information-service
+                        port:
+                            number: 5003
+              - path: /api/cleaning
+                pathType: Prefix
+                backend:
+                    service:
+                        name: cleaning-service
+                        port:
+                            number: 5004
+              - path: /api/kitchen
+                pathType: Prefix
+                backend:
+                    service:
+                        name: kitchen-service
+                        port:
+                            number: 5006

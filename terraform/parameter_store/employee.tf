@@ -1,18 +1,19 @@
 variable "allowed-origins-local" {
     type = string
     description = "The allowed origins for the CORS policy"
-    default = "http://localhost:5173"
+    default = "http://localhost:5173, http://localhost:5002"
 }
 
 locals {
     employee_production_parameters = {
         "AWS/Cognito/UserPoolId"    = { type = "String", value = "${var.cognito-user-pool-id}" }
+        "AllowedOrigins"            = { type = "StringList", value = "${var.allowed-origins-local}" }
         "MessageBroker/RabbitMQ/UserName"   = { type = "String", value = "${var.rabbitmq-default-username}" }
         "MessageBroker/RabbitMQ/Password"   = { type = "SecureString", value = "${var.rabbitmq-default-password}" }
         "Oidc/ClientSecret"         = { type = "SecureString", value = "${var.swagger-client-secret}" }
         "Oidc/ClientId"             = { type = "String", value = "${var.swagger-client-id}" }
         "Oidc/MetadataAddress"      = { type = "String", value = "${var.cognito-metadata-address}" }
-        "Postgres/ConnectionString" = { type = "SecureString", value = "Host=postgres-service;Port=5432;Database=${var.postgres-default-db};Username=employee_${var.postgres-default-user};Password=employee_${var.postgres-default-password}" }
+        "Postgres/ConnectionString" = { type = "SecureString", value = "Host=postgres-service;Port=5432;Database=${var.postgres-default-db};Username=employee_user;Password=employee_${var.postgres-default-password}" }
     }
 }
 

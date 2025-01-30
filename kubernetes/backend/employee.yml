@@ -24,7 +24,7 @@ spec:
                   - name: ASPNETCORE_ENVIRONMENT
                     value: Production
                 ports:
-                  - containerPort: 5002
+                  - containerPort: 8080
                     protocol: TCP
                 volumeMounts:
                   - name: aws-credentials
@@ -48,5 +48,5 @@ spec:
     ports:
       - protocol: TCP
         port: 5002
-        targetPort: 5002
-    type: LoadBalancer
+        targetPort: 8080
+    type: ClusterIP
