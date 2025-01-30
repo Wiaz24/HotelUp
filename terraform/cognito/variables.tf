@@ -20,14 +20,21 @@ variable "swagger_redirect_urls" {
         "http://localhost/api/information/swagger/oauth2-redirect.html",
         "http://localhost/api/cleaning/swagger/oauth2-redirect.html",
         "http://localhost/api/kitchen/swagger/oauth2-redirect.html",
-        "http://localhost/api/payment/swagger/oauth2-redirect.html"
+        "http://localhost/api/payment/swagger/oauth2-redirect.html",
+        "https://localhost/api/customer/swagger/oauth2-redirect.html",
+        "https://localhost/api/repair/swagger/oauth2-redirect.html",
+        "https://localhost/api/employee/swagger/oauth2-redirect.html",
+        "https://localhost/api/information/swagger/oauth2-redirect.html",
+        "https://localhost/api/cleaning/swagger/oauth2-redirect.html",
+        "https://localhost/api/kitchen/swagger/oauth2-redirect.html",
+        "https://localhost/api/payment/swagger/oauth2-redirect.html"
     ]
 }
 
 variable "frontend_redirect_urls" {
     type = list(string)
     description = "List of frontend URLs to which the cognito should redirect"
-    default = ["http://localhost:5173", "http://localhost"]
+    default = ["http://localhost:5173", "http://localhost", "https://localhost"]
 }
 
 variable "cognito_user_password" {

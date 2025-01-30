@@ -15,7 +15,7 @@ module "cognito" {
 module "parameter_store" {
     source = "./parameter_store"
 
-    api-gateway-url = "http://localhost"
+    api-gateway-url = "https://localhost"
     postgres-default-db = var.postgres-default-db
     postgres-default-user = var.postgres_default_user
     postgres-default-password = var.postgres_default_password

@@ -10,4 +10,7 @@ helm upgrade --install kubernetes-dashboard kubernetes-dashboard/kubernetes-dash
 
 bash eksctl/connect_to_cluster.sh
 
-kubectl apply -f hotelup-ns.yaml
+kubectl create ns hotelup
+bash rabbitmq/create-resources.sh
+bash postgres/create-resources.sh
+bash backend/create-resources.sh
