@@ -21,6 +21,7 @@ kubectl delete -f $PROJECT_DIR/HotelUp.Employee/k8s/hotelup-employee.yml
 
 # Frontend
 kubectl delete -f $PROJECT_DIR/HotelUp.Frontend/k8s/hotelup-frontend.yml
+kubectl delete secret frontend-secret -n $NAMESPACE
 
 # Information
 kubectl delete -f $PROJECT_DIR/HotelUp.Information/k8s/hotelup-information.yml
@@ -30,3 +31,4 @@ kubectl delete -f $PROJECT_DIR/HotelUp.Kitchen/k8s/hotelup-kitchen.yml
 
 # Repair
 kubectl delete -f $PROJECT_DIR/HotelUp.Repair/k8s/hotelup-repair.yml
+kubectl delete secret repair-secret -n $NAMESPACE

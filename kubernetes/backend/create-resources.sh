@@ -21,6 +21,7 @@ kubectl apply -f $PROJECT_DIR/HotelUp.Customer/k8s/hotelup-customer.yml
 kubectl apply -f $PROJECT_DIR/HotelUp.Employee/k8s/hotelup-employee.yml
 
 # Frontend
+bash $PROJECT_DIR/HotelUp.Frontend/k8s/create-secrets.sh
 kubectl apply -f $PROJECT_DIR/HotelUp.Frontend/k8s/hotelup-frontend.yml
 
 # Information
@@ -30,4 +31,5 @@ kubectl apply -f $PROJECT_DIR/HotelUp.Information/k8s/hotelup-information.yml
 kubectl apply -f $PROJECT_DIR/HotelUp.Kitchen/k8s/hotelup-kitchen.yml
 
 # Repair
+bash $PROJECT_DIR/HotelUp.Repair/k8s/create-secrets.sh
 kubectl apply -f $PROJECT_DIR/HotelUp.Repair/k8s/hotelup-repair.yml

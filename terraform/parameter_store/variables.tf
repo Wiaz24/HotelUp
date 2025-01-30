@@ -46,6 +46,26 @@ variable "cognito-metadata-address" {
     description = "The metadata address of the OIDC provider"
 }
 
+variable "cognito-authority" {
+    type = string
+    description = "The authority of the OIDC provider"
+}
+
+variable "cognito-domain" {
+    type = string
+    description = "The domain of the cognito"
+}
+
+variable "api-gateway-url" {
+    description = "The url of the api gateway"
+    type = string
+}
+
+variable "frontend-client-id" {
+    type = string
+    description = "The client id of the frontend"
+}
+
 variable "swagger-client-id" {
     type = string
     description = "The client id of the swagger"

@@ -32,3 +32,13 @@ output "metadata_address" {
     description = "Metadata address of the Cognito user pool"
     value       = "https://cognito-idp.us-east-1.amazonaws.com/${aws_cognito_user_pool.main.id}/.well-known/openid-configuration"
 }
+
+output "cognito_authority" {
+    description = "Authority of the Cognito user pool, contains https"
+    value       = "https://cognito-idp.us-east-1.amazonaws.com/${aws_cognito_user_pool.main.id}"
+}
+
+output "cognito_domain" {
+    description = "Domain of the Cognito user pool, contains https"
+    value       = "https://${aws_cognito_user_pool_domain.main.domain}.auth.us-east-1.amazoncognito.com"
+}

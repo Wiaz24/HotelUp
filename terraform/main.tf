@@ -15,6 +15,7 @@ module "cognito" {
 module "parameter_store" {
     source = "./parameter_store"
 
+    api-gateway-url = "http://localhost"
     postgres-default-db = var.postgres-default-db
     postgres-default-user = var.postgres_default_user
     postgres-default-password = var.postgres_default_password
@@ -22,6 +23,9 @@ module "parameter_store" {
     pgadmin-default-password = var.pgadmin-default-password
     cognito-user-pool-id = module.cognito.user_pool_id
     cognito-metadata-address = module.cognito.metadata_address
+    cognito-authority = module.cognito.cognito_authority
+    cognito-domain = module.cognito.cognito_domain
+    frontend-client-id = module.cognito.frontend_client_id
     swagger-client-id = module.cognito.swagger_client_id
     swagger-client-secret = module.cognito.swagger_client_secret
     rabbitmq-default-username = var.rabbitmq_default_username
