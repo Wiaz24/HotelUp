@@ -7,6 +7,7 @@ HotelUp is a hotel management system that allows clients to book their reservati
 - PostgreSQL - database
 - Docker - containerization
 - Kubernetes - orchestration
+- RabbitMQ - message broker
 - AWS - cloud services
 - Terraform - infrastructure as code
 - Github Actions - CI/CD
