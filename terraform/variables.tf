@@ -4,6 +4,12 @@ variable "aws_region" {
     default     = "us-east-1"
 }
 
+variable "api_gateway_url" {
+    description = "URL of the API Gateway"
+    type        = string
+    default = "https://a8068b321814c427c8b6784a65c47cc8-964586252.us-east-1.elb.amazonaws.com"
+}
+
 variable "lab_role" {
     description = "ARN of the IAM role that has all the necessary permissions for the lab"
     type        = string
@@ -14,12 +20,6 @@ variable "cognito_user_password" {
     description = "Password for the cognito user"
     type        = string
     sensitive   = true
-}
-
-variable "target_url" {
-    description = "URL of the target API"
-    type        = string
-    default     = "https://jsonplaceholder.typicode.com/posts"
 }
 
 variable "lambda_api_key" {

@@ -8,7 +8,7 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         target_url = os.environ['TARGET_URL']
         api_key = get_api_key()
         user_pool_id = os.environ['USER_POOL_ID']
-        cert_path = '/opt/certs/certificate.pem'
+        # cert_path = '/opt/certs/certificate.pem'
 
         user_attributes = event['request']['userAttributes']
         payload = {
@@ -21,7 +21,7 @@ def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             url=target_url,
             json=payload,
             headers={'Content-Type': 'application/json'},
-            verify=cert_path
+            verify=False
         )
         
         response.raise_for_status()
@@ -50,7 +50,7 @@ def get_api_key():
     try:
         ssmClient = boto3.client('ssm')
         response = ssmClient.get_parameter(
-            Name='/HotelUp.Customer/Docker/AWS/Lambda/ApiKey', 
+            Name='/HotelUp.Customer/Production/AWS/Lambda/ApiKey', 
             WithDecryption=True)
         
         parameter_value = response['Parameter']['Value']

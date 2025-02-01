@@ -12,11 +12,10 @@ variable "cognito_user_pool_id" {
 variable "target_url" {
     type = string
     description = "URL to which the lambda function should send post confirmation data"
-    default = "http://localhost:5000/api/customer/commands/publish-user-created-event"
 }
 
 variable "lambda_role" {
     type = string
     description = "ARN of the IAM role to be used by the Lambda function"
-    default = "arn:aws:iam::539247454940:role/hotelup-lambda-role"
+    default = "arn:aws:iam::658583182001:role/LabRole"
 }

@@ -70,6 +70,7 @@ cat << EOF | kubectl apply -f -
 
             -- Revoke all privileges on public schema
             REVOKE ALL ON SCHEMA public FROM PUBLIC;
+            ALTER SYSTEM SET track_commit_timestamp = on;
 EOF
 
 kubectl create configmap postgresql-conf-config --from-file=$SCRIPT_DIR/postgresql.conf --namespace=$NAMESPACE

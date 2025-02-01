@@ -4,15 +4,13 @@ metadata:
     name: hotelup-ingress
     annotations:
         nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-        # add an annotation indicating the issuer to use.
         cert-manager.io/cluster-issuer: selfsigned
 spec:
-    # ingressClassName: nginx / alb (automaticly determined if only one is installed)
+    ingressClassName: nginx
     tls:
-      # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
       - hosts:
           - hotelup.local
-        secretName: selfsigned-tls # < cert-manager will store the created certificate in this secret.
+        secretName: selfsigned-tls
     rules:
       - host: hotelup.local
       - http:

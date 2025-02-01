@@ -6,7 +6,7 @@ metadata:
         app: rabbitmq
 spec:
     persistence:
-        # storageClassName: hostpath
+        storageClassName: "ebs-sc"
         storage: 2Gi
     replicas: 3
     secretBackend:

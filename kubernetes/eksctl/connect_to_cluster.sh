@@ -1,6 +1,6 @@
 #! /bin/bash
 CLUSTER_NAME="hotelup-cluster"
-DASHBOARD_PORT=2137
+DASHBOARD_PORT=2222
 # read -p "Enter the cluster name: " CLUSTER_NAME
 echo "Connecting to cluster $CLUSTER_NAME..."
 

@@ -10,7 +10,7 @@ spec:
     selector:
         matchLabels:
             app: postgres
-    replicas: 2
+    replicas: 1
     template:
         metadata:
             labels:
@@ -32,6 +32,8 @@ spec:
                 ports:
                   - containerPort: 5432
                 env:
+                  - name: PGDATA
+                    value: /var/lib/postgresql/data/db-files
                   - name: POSTGRES_USER
                     valueFrom:
                         secretKeyRef:
@@ -74,7 +76,7 @@ spec:
             name: postgres-storage
         spec:
             accessModes: [ "ReadWriteOnce" ]
-            # storageClassName: "gp2"  # Use your StorageClass (e.g., "gp2", "aws-ebs")
+            storageClassName: "ebs-sc" # Use your StorageClass (e.g., "gp2", "aws-ebs")
             resources:
                 requests:
                     storage: 10Gi

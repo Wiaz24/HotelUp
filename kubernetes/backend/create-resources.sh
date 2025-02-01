@@ -6,8 +6,6 @@ if [ -z "$1" ]; then
 fi
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 
-kubectl create secret generic aws-credentials -n $NAMESPACE \
-    --from-file=credentials=$HOME/.aws/credentials
 
 PROJECT_DIR=$(realpath $SCRIPT_DIR/../..)
 

@@ -14,12 +14,8 @@ managedNodeGroups:
     instanceType: t3.medium
     minSize: 2
     maxSize: 3
-    volumeSize: 10
-    maxPodsPerNode: 11
+    volumeSize: 30
     ssh:
         allow: true # will use ~/.ssh/id_rsa.pub as the default ssh key
     iam:
         instanceRoleARN: arn:aws:iam::658583182001:role/LabRole
-        # instanceRoleName: EMR_EC2_DefaultRole
-        # withAddonPolicies:
-        #     ebs: true

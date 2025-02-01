@@ -1,7 +1,7 @@
 locals {
     information_production_parameters = {
         "AWS/Cognito/UserPoolId"    = { type = "String", value = "${var.cognito-user-pool-id}" }
-        "AllowedOrigins"            = { type = "StringList", value = "${var.allowed-origins-local}" }
+        "AllowedOrigins"            = { type = "StringList", value = "${local.allowed_origins}" }
         "MessageBroker/RabbitMQ/UserName"   = { type = "String", value = "${var.rabbitmq-default-username}" }
         "MessageBroker/RabbitMQ/Password"   = { type = "SecureString", value = "${var.rabbitmq-default-password}" }
         "Oidc/ClientSecret"         = { type = "SecureString", value = "${var.swagger-client-secret}" }

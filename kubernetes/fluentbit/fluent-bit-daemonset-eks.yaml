@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+    name: fluent-bit
+    namespace: kube-system
+    labels:
+        k8s-app: fluent-bit
+spec:
+    selector:
+        matchLabels:
+            k8s-app: fluent-bit
+    template:
+        metadata:
+            labels:
+                k8s-app: fluent-bit
+        spec:
+            serviceAccountName: fluent-bit # Wymagane dla IRSA
+            containers:
+              - name: fluent-bit
+                image: amazon/aws-for-fluent-bit:latest
+                imagePullPolicy: Always
+                env:
+                  - name: AWS_REGION
+                    value: "<AWS_REGION>" # np. eu-central-1
+                volumeMounts:
+                  - name: varlog
+                    mountPath: /var/log
+                  - name: fluent-bit-config
+                    mountPath: /fluent-bit/etc/
+            volumes:
+              - name: varlog
+                hostPath:
+                    path: /var/log
+              - name: fluent-bit-config
+                configMap:
+                    name: fluent-bit-config
+            tolerations:
+              - operator: Exists

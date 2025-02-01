@@ -3,38 +3,9 @@ variable "aws_region" {
     description = "AWS region"
 }
 
-variable "swagger_redirect_urls" {
-    type = list(string)
-    description = "List of swagger URLs to which the cognito should redirect"
-    default = [
-        "http://localhost:5000/api/customer/swagger/oauth2-redirect.html",
-        "http://localhost:5001/api/repair/swagger/oauth2-redirect.html",
-        "http://localhost:5002/api/employee/swagger/oauth2-redirect.html",
-        "http://localhost:5003/api/information/swagger/oauth2-redirect.html",
-        "http://localhost:5004/api/cleaning/swagger/oauth2-redirect.html",
-        "http://localhost:5006/api/kitchen/swagger/oauth2-redirect.html",
-        "http://localhost:5007/api/payment/swagger/oauth2-redirect.html",
-        "http://localhost/api/customer/swagger/oauth2-redirect.html",
-        "http://localhost/api/repair/swagger/oauth2-redirect.html",
-        "http://localhost/api/employee/swagger/oauth2-redirect.html",
-        "http://localhost/api/information/swagger/oauth2-redirect.html",
-        "http://localhost/api/cleaning/swagger/oauth2-redirect.html",
-        "http://localhost/api/kitchen/swagger/oauth2-redirect.html",
-        "http://localhost/api/payment/swagger/oauth2-redirect.html",
-        "https://localhost/api/customer/swagger/oauth2-redirect.html",
-        "https://localhost/api/repair/swagger/oauth2-redirect.html",
-        "https://localhost/api/employee/swagger/oauth2-redirect.html",
-        "https://localhost/api/information/swagger/oauth2-redirect.html",
-        "https://localhost/api/cleaning/swagger/oauth2-redirect.html",
-        "https://localhost/api/kitchen/swagger/oauth2-redirect.html",
-        "https://localhost/api/payment/swagger/oauth2-redirect.html"
-    ]
-}
-
-variable "frontend_redirect_urls" {
-    type = list(string)
-    description = "List of frontend URLs to which the cognito should redirect"
-    default = ["http://localhost:5173", "http://localhost", "https://localhost"]
+variable "api_gateway_url" {
+    type = string
+    description = "URL of the API Gateway"
 }
 
 variable "cognito_user_password" {

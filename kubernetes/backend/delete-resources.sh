@@ -6,8 +6,6 @@ if [ -z "$1" ]; then
 fi
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 
-kubectl delete secret aws-credentials -n $NAMESPACE
-
 PROJECT_DIR=$(realpath $SCRIPT_DIR/../..)
 
 # Cleaning
